@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <h1>Connexion</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form method="POST" action="{{ url_for('login') }}">
+            <label>Email:</label>
+            <input type="email" name="email" required>
+            <label>Mot de passe:</label>
+            <input type="password" name="mot_de_passe" required>
+            <button type="submit">Se connecter</button>
+        </form>
+    </div>
+    <footer style="text-align: center; margin-top: 20px;">created by yassine-lamachi all rights reserved 2025</footer>
+</body>
+</html>

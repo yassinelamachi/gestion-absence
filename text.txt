@@ -1,0 +1,50 @@
+bonjour , Créer une application en utilisant le langage de programmation Python. L'application est destinée à l'administration d'une école.
+
+Dans cette application, je souhaite intégrer trois espaces :
+
+Un espace pour l'administrateur
+Un espace pour les professeurs
+Un espace pour les étudiants
+La page d'accueil (index) doit contenir un système de connexion avec un nom d'utilisateur et un mot de passe uniquement pour l'administrateur. Une fois connecté, l'administrateur pourra créer et gérer les comptes des étudiants et des professeurs depuis son espace.
+
+Fonctionnalités de l’espace administrateur :
+Ajouter différentes filières (Licence, CPGE, Master, etc.).
+Gérer les listes d’étudiants pour chaque filière (ajout/suppression).
+Chaque liste doit contenir les colonnes suivantes :
+Numéro d’étudiant
+Nom complet
+Identifiant de connexion
+Mot de passe
+Ajouter/supprimer des professeurs et leur attribuer :
+Les matières enseignées
+Les filières concernées
+Leur identifiant et mot de passe
+Fonctionnalités de l’espace étudiant :
+Consulter ses absences
+Voir ses notes
+Lire les commentaires laissés par les professeurs
+Accéder à la liste des matières de sa classe
+Fonctionnalités de l’espace professeur :
+Ajouter les absences des étudiants
+Ajouter les notes des étudiants
+Ajouter des commentaires personnalisés pour chaque étudiant et chaque matière
+Aspects techniques :
+Base de données : MySQL Workbench pour stocker les identifiants et mots de passe
+Interface utilisateur :
+Un design simple et moderne en CSS
+Couleurs principales : blanc et bleu ciel
+Un logo affiché dans la barre de navigation et en haut de chaque page (à gauche)
+Script JavaScript pour des interactions dynamiques
+
+creer l'application avec la structure suivantes : 
+app.Py
+database.Py
+templates/
+index.html(login page)
+admin.html
+eleve.html
+professeur.html
+static/
+styles.CSS
+scriptes.CSS
+logo.png

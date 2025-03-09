@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Professeur</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo de l'école">
+        <h1>Espace Professeur</h1>
+        <a href="{{ url_for('logout') }}" class="btn-logout">Déconnexion</a>
+    </header>
+
+    <main>
+        <!-- Section : Ajouter des absences -->
+        <section class="section-card">
+            <h2>Ajouter des Absences</h2>
+            <form id="addAbsenceForm">
+                <div class="form-group">
+                    <label for="studentSelect">Étudiant</label>
+                    <select id="studentSelect" required>
+                        <option value="">Choisir un étudiant</option>
+                        <!-- Options dynamiques -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="absenceDate">Date</label>
+                    <input type="date" id="absenceDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="absenceSubject">Matière</label>
+                    <input type="text" id="absenceSubject" placeholder="Ex: Mathématiques" required>
+                </div>
+                <button type="submit" class="btn-primary">Ajouter Absence</button>
+            </form>
+        </section>
+
+        <!-- Section : Ajouter des notes -->
+        <section class="section-card">
+            <h2>Ajouter des Notes</h2>
+            <form id="addGradeForm">
+                <div class="form-group">
+                    <label for="studentSelectGrade">Étudiant</label>
+                    <select id="studentSelectGrade" required>
+                        <option value="">Choisir un étudiant</option>
+                        <!-- Options dynamiques -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="gradeSubject">Matière</label>
+                    <input type="text" id="gradeSubject" placeholder="Ex: Mathématiques" required>
+                </div>
+                <div class="form-group">
+                    <label for="gradeValue">Note</label>
+                    <input type="number" id="gradeValue" placeholder="Ex: 15" min="0" max="20" step="0.1" required>
+                </div>
+                <button type="submit" class="btn-primary">Ajouter Note</button>
+            </form>
+        </section>
+
+        <!-- Section : Ajouter des commentaires -->
+        <section class="section-card">
+            <h2>Ajouter des Commentaires</h2>
+            <form id="addCommentForm">
+                <div class="form-group">
+                    <label for="studentSelectComment">Étudiant</label>
+                    <select id="studentSelectComment" required>
+                        <option value="">Choisir un étudiant</option>
+                        <!-- Options dynamiques -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="commentSubject">Matière</label>
+                    <input type="text" id="commentSubject" placeholder="Ex: Mathématiques" required>
+                </div>
+                <div class="form-group">
+                    <label for="commentText">Commentaire</label>
+                    <textarea id="commentText" placeholder="Ex: Bon travail, mais peut faire mieux." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Ajouter Commentaire</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Interface Administration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        </div>
+        <h1>Gestion des utilisateurs, classes, matières et filières</h1>
+
+        <!-- Formulaire pour créer une filière -->
+        <h2>Créer une filière</h2>
+        <form method="POST" action="{{ url_for('create_filiere') }}">
+            <label>Nom de la filière:</label>
+            <input type="text" name="nom_filiere" required>
+            <button type="submit">Créer</button>
+        </form>
+
+        <!-- Formulaire pour modifier une filière -->
+        <h2>Modifier une filière</h2>
+        <form method="POST" action="{{ url_for('update_filiere') }}"></form>
+            <label>Nom de la filière:</label>
+            <select name="filiere" required>
+                <!-- Options should be populated dynamically from the backend -->
+                <option value="LIDES">LIDES</option>
+                <option value="L2M">L2M</option>
+                <!-- Add more options as needed -->
+            </select>
+            <label>Nouveau nom de la filière:</label>
+            <input type="text" name="nouveau_nom_filiere" required>
+            <button type="submit">Modifier</button>
+        </form>
+
+        <!-- Formulaire pour créer une matière dans une filière -->
+        <h2>Créer une matière dans une filière</h2>
+        <form method="POST" action="{{ url_for('create_matiere') }}">
+            <label>Nom de la filière:</label>
+            <select name="filiere" required>
+                <!-- Options should be populated dynamically from the backend -->
+                <option value="LIDES">LIDES</option>
+                <option value="L2M">L2M</option>
+                <!-- Add more options as needed -->
+            </select>
+            <label>Nom de la matière:</label>
+            <input type="text" name="nom_matiere" required>
+            <button type="submit">Créer</button>
+        </form>
+
+        <!-- Formulaire pour ajouter un utilisateur -->
+        <h2>Ajouter un utilisateur</h2>
+        <form method="POST" action="{{ url_for('add_user') }}">
+            <label>Nom:</label>
+            <input type="text" name="nom_utilisateur" required>
+            <label>Email:</label>
+            <input type="email" name="email" required>
+            <label>Mot de passe:</label>
+            <input type="password" name="mot_de_passe" required>
+            <label>Rôle:</label>
+            <select name="role" required></select>
+                <option value="eleve">Élève</option>
+                <option value="professeur">Professeur</option>
+            </select>
+            <label>Filière:</label>
+            <select name="filiere" required></select>
+                <!-- Options should be populated dynamically from the backend -->
+                <option value="LIDES">LIDES</option>
+                <option value="L2M">L2M</option>
+                <!-- Add more options as needed -->
+            </select>
+            <button type="submit">Ajouter</button>
+        </form>
+
+        <!-- Formulaire pour modifier un utilisateur -->
+        <h2>Modifier un utilisateur</h2>
+        <form method="POST" action="{{ url_for('update_user') }}"></form>
+            <label>Email de l'utilisateur:</label>
+            <input type="email" name="email" required>
+            <label>Nouveau nom:</label>
+            <input type="text" name="nouveau_nom_utilisateur">
+            <label>Nouveau mot de passe:</label>
+            <input type="password" name="nouveau_mot_de_passe">
+            <label>Nouveau rôle:</label>
+            <select name="nouveau_role">
+                <option value="eleve">Élève</option>
+                <option value="professeur">Professeur</option>
+            </select>
+            <label>Nouvelle filière:</label>
+            <select name="nouvelle_filiere">
+                <!-- Options should be populated dynamically from the backend -->
+                <option value="LIDES">LIDES</option>
+                <option value="L2M">L2M</option>
+                <!-- Add more options as needed -->
+            </select>
+            <button type="submit">Modifier</button>
+        </form>
+
+        <!-- Formulaire pour ajouter des étudiants en masse -->
+        <h2>Ajouter des étudiants en masse</h2>
+        <form method="POST" action="{{ url_for('add_students_bulk') }}" enctype="multipart/form-data">
+            <label>Fichier CSV:</label>
+            <input type="file" name="file" accept=".csv" required>
+            <button type="submit">Ajouter</button>
+        </form>
+
+        <!-- Formulaire pour ajouter des professeurs en masse -->
+        <h2>Ajouter des professeurs en masse</h2>
+        <form method="POST" action="{{ url_for('add_professors_bulk') }}" enctype="multipart/form-data">
+            <label>Fichier CSV:</label>
+            <input type="file" name="file" accept=".csv" required>
+            <button type="submit">Ajouter</button>
+        </form>
+
+        <!-- Formulaire pour gérer les absences -->
+        <h2>Gérer les absences</h2>
+        <form method="POST" action="{{ url_for('manage_absences') }}">
+            <label>Nom de l'étudiant:</label>
+            <input type="text" name="nom_etudiant" required>
+            <label>Date de l'absence:</label>
+            <input type="date" name="date_absence" required>
+            <label>Motif:</label>
+            <input type="text" name="motif" required>
+            <button type="submit">Enregistrer</button>
+        </form>
+
+        <a href="{{ url_for('logout') }}">Déconnexion</a>
+    </div>
+</body>
+</html>
